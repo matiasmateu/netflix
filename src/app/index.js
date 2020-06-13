@@ -10,8 +10,6 @@ import ScreenMyPage from '../screenMyPage';
 import ScreenModal from '../screenModal';
 import Menu, { DrawerButton } from '../menu';
 import Theme from '../theme';
-import { GlobalProvider } from '../app/context/globalState'
-import AppStateManager from './appStateManager'
 
 const Stack = createStackNavigator();
 const ModalStack = createStackNavigator();
@@ -62,15 +60,11 @@ const App = () => {
         StatusBar.setBarStyle(Theme.statusBar);
     }, []);
     return (
-        <GlobalProvider>
-            <AppStateManager>
-                <NavigationContainer>
-                    <Drawer.Navigator drawerContent={Menu}>
-                        <Drawer.Screen name="drawer" component={ModalNavigator} />
-                    </Drawer.Navigator>
-                </NavigationContainer>
-            </AppStateManager>
-        </GlobalProvider>
+        <NavigationContainer>
+            <Drawer.Navigator drawerContent={Menu}>
+                <Drawer.Screen name="drawer" component={ModalNavigator} />
+            </Drawer.Navigator>
+        </NavigationContainer>
     );
 };
 
