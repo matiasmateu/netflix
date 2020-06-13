@@ -1,6 +1,8 @@
 import React from 'react';
 import { View , Text, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Title from '../../atoms/title'
+import { dw } from '../../constants'
 
 const styles = StyleSheet.create({
     searchBarContainer:{
@@ -21,8 +23,7 @@ const SearchBar = () => {
     return (
         <View style={styles.searchBarContainer}>
             <View >
-                <Text style={styles.searchBarTextPlaceholder}>Discover</Text>
-                
+                <Title text={"Discover"} size={"h2"}/>    
             </View>
             <View style={styles.textContainer}>  
                 <Icon name="search" size={20} color="white" />

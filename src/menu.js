@@ -3,6 +3,7 @@ import { Text, View } from 'react-native';
 import { Icon, Button, getScaledValue, useNavigate, useOpenDrawer, StyleSheet } from 'renative';
 import { initNavigation, withFocusable } from '@noriginmedia/react-spatial-navigation';
 import Theme, { themeStyles, hasHorizontalMenu, hasWebFocusableUI } from './theme';
+import SearchBar from './app/components/molecules/searchBar'
 
 if (hasWebFocusableUI) {
     initNavigation({
@@ -65,62 +66,10 @@ const Menu = (props) => {
         }, []);
     }
 
+    
     return (
-        <View style={styles.container}>
-            <Text style={themeStyles.text}>
-Menu
-            </Text>
-            <Button
-                to="/"
-                title="Home"
-                iconFont="ionicons"
-                className="focusable"
-                iconName="md-home"
-                iconColor={Theme.color3}
-                iconSize={Theme.iconSize}
-                style={styles.button}
-                textStyle={styles.buttonText}
-                onPress={() => {
-                    navigate('home');
-                }}
-                onEnterPress={() => {
-                    navigate('/');
-                }}
-            />
-            <Button
-                to="my-page"
-                title="My Page"
-                iconFont="ionicons"
-                iconName="md-book"
-                className="focusable"
-                iconColor={Theme.color3}
-                iconSize={Theme.iconSize}
-                style={styles.button}
-                textStyle={styles.buttonText}
-                onPress={() => {
-                    navigate('my-page');
-                }}
-                onEnterPress={() => {
-                    navigate('my-page');
-                }}
-            />
-            <Button
-                to="modal"
-                title="My Modal"
-                iconFont="ionicons"
-                className="focusable"
-                iconName="ios-albums"
-                iconColor={Theme.color3}
-                iconSize={Theme.iconSize}
-                style={styles.button}
-                textStyle={styles.buttonText}
-                onPress={() => {
-                    navigate('modal');
-                }}
-                onEnterPress={() => {
-                    navigate('modal');
-                }}
-            />
+        <View style={{width:"100%",padding:16}}>
+            <SearchBar />
         </View>
     );
 };

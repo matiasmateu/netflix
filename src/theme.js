@@ -98,6 +98,7 @@ export const themeStyles = StyleSheet.create({
         fontSize: getScaledValue(20),
     },
     screen: {
+        padding:8,
         position: 'absolute',
         backgroundColor: theme.color1,
         top: 0,

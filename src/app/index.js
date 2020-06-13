@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, StatusBar } from 'react-native';
+import { StyleSheet, StatusBar,Text, View } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -12,6 +12,7 @@ import Menu, { DrawerButton } from '../menu';
 import Theme from '../theme';
 import { GlobalProvider } from './context/globalState'
 import AppStateManager from './appStateManager'
+import SearchBar from '../app/components/molecules/searchBar'
 
 const Stack = createStackNavigator();
 const ModalStack = createStackNavigator();
@@ -25,8 +26,9 @@ const styles = StyleSheet.create({
     },
     header: {
         backgroundColor: Theme.color1,
-        borderBottomWidth: 1,
+        borderBottomWidth: 0,
         height: getScaledValue(70)
+        
     }
 });
 
@@ -37,13 +39,13 @@ const StackNavigator = ({ navigation }) => (
             headerStyle: styles.header,
             headerTintColor: Theme.color3
         }}
+        
     >
         <Stack.Screen
             name="home"
             component={ScreenHome}
             options={{
-                headerLeft: () => <DrawerButton navigation={navigation} />,
-                headerRight: () => <CastButton style={{ width: Theme.iconSize, height: Theme.iconSize, tintColor: Theme.color3 }} />
+                headerTitle: props => <SearchBar />
             }}
         />
         <Stack.Screen name="my-page" component={ScreenMyPage} />
@@ -53,7 +55,7 @@ const StackNavigator = ({ navigation }) => (
 const ModalNavigator = () => (
     <ModalStack.Navigator headerMode="none" mode="modal">
         <ModalStack.Screen name="stack" component={StackNavigator} />
-        <ModalStack.Screen name="modal" component={ScreenModal} />
+        <ModalStack.Screen  name="modal" component={ScreenModal} />
     </ModalStack.Navigator>
 );
 

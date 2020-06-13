@@ -8,7 +8,8 @@ import { dw,dh} from '../../constants'
 
 const styles = StyleSheet.create({
     featuredContainer:{
-        width:dw,
+        marginTop:32,
+        width:"100%",
         height:dh/2.5,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
