@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { Text, Image, View, ScrollView, PixelRatio } from 'react-native';
 import { Api, Button, getScaledValue, useNavigate, useOpenURL, StyleSheet } from 'renative';
 import { withFocusable } from '@noriginmedia/react-spatial-navigation';
@@ -6,6 +6,7 @@ import Theme, { themeStyles, hasWebFocusableUI } from './theme';
 import config from '../platformAssets/renative.runtime.json';
 import packageJson from '../package.json';
 import icon from '../platformAssets/runtime/logo.png';
+import { GlobalContext } from './app/context/globalState';
 
 const styles = StyleSheet.create({
     appContainerScroll: {
@@ -23,6 +24,15 @@ const FocusableView = withFocusable()(View);
 
 const ScreenHome = (props) => {
     const [bgColor, setBgColor] = useState(Theme.color1);
+
+    const { 
+        apiConfig, 
+        popularMovies, 
+        popularTvSeries, 
+        familyGenre , 
+        documentaryGenre 
+    } = useContext(GlobalContext)
+
     const navigate = useNavigate(props);
     const openURL = useOpenURL();
     let scrollRef;
@@ -39,9 +49,13 @@ const ScreenHome = (props) => {
             if (direction === 'up') scrollRef.current.scrollTo({ y: 0 });
         };
         useEffect(() => function cleanup() {
+            
             setFocus('menu');
         }, []);
     }
+
+
+    
     return (
         <View style={themeStyles.screen}>
             <ScrollView
