@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import { Text, SafeAreaView, ScrollView, Image, View } from 'react-native';
+import { Text, SafeAreaView, ScrollView, Image, View, Dimensions } from 'react-native';
 import { Button, getScaledValue, usePop, StyleSheet } from 'renative';
 import { withFocusable } from '@noriginmedia/react-spatial-navigation';
 import Theme, { themeStyles, hasWebFocusableUI } from './theme';
@@ -8,7 +8,10 @@ import Subtitle from './app/components/atoms/subtitle'
 import image from '../platformAssets/runtime/avatarwide.jpeg'
 import { GlobalContext } from './app/context/globalState'
 import RoundButton from './app/components/atoms/roundButton'
-
+import Video from 'react-native-video';
+import bunnyVideo from '../platformAssets/runtime/big_buck_bunny.mp4'
+import Orientation from 'react-native-orientation-locker';
+import { dw,dh } from './app/components/constants'
 const styles = StyleSheet.create({
     header: {
         width: '100%',
@@ -30,12 +33,29 @@ const styles = StyleSheet.create({
         top:0,
         zIndex:10,
         position:'absolute'
-    }
+    },
+    container: {
+        flex: 1,
+        backgroundColor: '#ebebeb',
+      },
+      video: {
+        width: dh,
+        height: dw,
+        backgroundColor: 'black',
+      },
+      text: {
+        marginTop: 30,
+        marginHorizontal: 20,
+        fontSize: 15,
+        textAlign: 'justify',
+      },
 
 });
 
-const ScreenModal = props => {
+const ScreenPlayer = props => {
 
+    
+    
     const pop = usePop(props);
 
     const {  apiConfig } = useContext(GlobalContext)
@@ -51,15 +71,17 @@ const ScreenModal = props => {
         }, []);
     }
 
-    debugger
+      
+    useEffect(() => {
+        Orientation.lockToLandscape()
+        return () => {
+          Orientation.unlockAllOrientations()
+        };
+      }, []);
 
     return (
         <SafeAreaView style={themeStyles.screenModal}>
-            <View style={{flex:1}}>
-                <View style={{flex:6}}>
-                    
-                    <Image style={{width:"100%",height:"100%"}} source={{uri:`${apiConfig.images.base_url}original${props.route.params.poster_path}`}} />
-                    <Button
+            <Button
                         style={styles.icon}
                         focusKey="close"
                         iconFont="ionicons"
@@ -75,17 +97,14 @@ const ScreenModal = props => {
                             pop();
                         }}
                     />
-                </View>
-                <View style={{flex:2}}>
-                    <Title text={props.route.params.title ? props.route.params.title : props.route.params.name ? props.route.params.name : ""} size={"h1"}  />
-                    <Subtitle text={"Subtitle"} size={"sh1"} />
-                    <RoundButton navigation={props.navigation} />
-                    <Text style={{color:"white",paddingTop:8}}>{props.route.params.overview}</Text>
-                </View>
-            </View>
-            
+            <Video
+                source={bunnyVideo}
+                style={styles.video}
+                controls={true}
+                resizeMode={'cover'}
+            />
         </SafeAreaView>
     );
 };
 
-export default (hasWebFocusableUI ? withFocusable()(ScreenModal) : ScreenModal);
+export default (hasWebFocusableUI ? withFocusable()(ScreenModal) : ScreenPlayer);

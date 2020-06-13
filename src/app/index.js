@@ -6,8 +6,9 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { CastButton } from 'react-native-google-cast';
 import { getScaledValue } from 'renative';
 import ScreenHome from '../screenHome';
-import ScreenMyPage from '../screenMyPage';
+import ScreenSearch from '../screenSearch';
 import ScreenModal from '../screenModal';
+import ScreenPlayer from '../screenPlayer'
 import Menu, { DrawerButton } from '../menu';
 import Theme from '../theme';
 import { GlobalProvider } from './context/globalState'
@@ -45,10 +46,16 @@ const StackNavigator = ({ navigation }) => (
             name="home"
             component={ScreenHome}
             options={{
-                headerTitle: props => <SearchBar />
+                headerTitle: props => <SearchBar navigation={navigation} />
             }}
         />
-        <Stack.Screen name="my-page" component={ScreenMyPage} />
+        <Stack.Screen 
+            name="search" 
+            component={ScreenSearch} 
+            options={{
+                headerTitle: props => <SearchBar navigation={navigation}/>
+            }}
+        />
     </Stack.Navigator>
 );
 
@@ -56,6 +63,7 @@ const ModalNavigator = () => (
     <ModalStack.Navigator headerMode="none" mode="modal">
         <ModalStack.Screen name="stack" component={StackNavigator} />
         <ModalStack.Screen  name="modal" component={ScreenModal} />
+        <ModalStack.Screen  name="player" component={ScreenPlayer} />
     </ModalStack.Navigator>
 );
 
