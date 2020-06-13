@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
-import { Text, Image, View, ScrollView, PixelRatio } from 'react-native';
+import { Text, Image, View, ScrollView, FlatList } from 'react-native';
 import { Api, Button, getScaledValue, useNavigate, useOpenURL, StyleSheet } from 'renative';
 import { withFocusable } from '@noriginmedia/react-spatial-navigation';
 import Theme, { themeStyles, hasWebFocusableUI } from './theme';
@@ -9,6 +9,7 @@ import icon from '../platformAssets/runtime/logo.png';
 import { GlobalContext } from './app/context/globalState';
 import SearchBar from './app/components/molecules/searchBar'
 import Featured from './app/components/molecules/featured'
+import Carousel from './app/components/molecules/carousel'
 
 const styles = StyleSheet.create({
     appContainerScroll: {
@@ -59,85 +60,21 @@ const ScreenHome = (props) => {
 
     
     return (
-        <View style={themeStyles.screen}>
-            <SearchBar />
-            <Featured />
-            <ScrollView
-                style={{ backgroundColor: bgColor }}
-                ref={scrollRef}
-                contentContainerStyle={themeStyles.container}
-            >
-                <Image style={styles.image} source={icon} />
-                <Text style={themeStyles.textH2}>
-                    {config.welcomeMessage}
-                </Text>
-                <Text style={themeStyles.textH2}>
-                    {packageJson.version}
-                </Text>
-                <Text style={themeStyles.textH3}>
-                    {`platform: ${Api.platform}, factor: ${Api.formFactor}, engine: ${Api.engine}`}
-                </Text>
-                <Text style={themeStyles.textH3}>
-                    {`hermes: ${global.HermesInternal === undefined ? 'no' : 'yes'}`}
-                </Text>
-                <Text style={themeStyles.textH3}>
-                    {`pixelRatio: ${PixelRatio.get()}, ${PixelRatio.getFontScale()}`}
-                </Text>
-                <Button
-                    style={themeStyles.button}
-                    textStyle={themeStyles.buttonText}
-                    title="Try Me!"
-                    className="focusable"
-                    onPress={() => {
-                        setBgColor(bgColor === '#666666' ? Theme.color1 : '#666666');
-                    }}
-                    onEnterPress={() => {
-                        setBgColor(bgColor === '#666666' ? Theme.color1 : '#666666');
-                    }}
-                    onBecameFocused={handleFocus}
-                    onArrowPress={handleUp}
+        // <FocusableView style={{ marginTop: 20, flexDirection: 'row' }} onBecameFocused={handleFocus}>
+
+            
+            <ScrollView style={themeStyles.screen}>
+                <SearchBar />
+                <Featured />
+                <FlatList 
+                    initialNumToRender={3}
+                    data={[{id:1},{id:2},{id:3},{id:4}]}
+                    keyExtractor={item => item.id}
+                    renderItem={item=><Carousel />}
                 />
-                <Button
-                    style={themeStyles.button}
-                    textStyle={themeStyles.buttonText}
-                    title="Now Try Me!"
-                    className="focusable"
-                    onPress={() => {
-                        navigate('my-page', { replace: false });
-                    }}
-                    onEnterPress={() => {
-                        navigate('my-page', { replace: false });
-                    }}
-                    onBecameFocused={handleFocus}
-                />
-                <FocusableView style={{ marginTop: 20, flexDirection: 'row' }} onBecameFocused={handleFocus}>
-                    <Button
-                        iconFont="fontAwesome"
-                        className="focusable"
-                        focusKey="github"
-                        iconName="github"
-                        iconColor={Theme.color3}
-                        iconSize={Theme.iconSize}
-                        style={themeStyles.icon}
-                        onPress={() => {
-                            openURL('https://github.com/pavjacko/renative');
-                        }}
-                    />
-                    <Button
-                        iconFont="fontAwesome"
-                        className="focusable"
-                        iconName="twitter"
-                        focusKey="twitter"
-                        iconColor={Theme.color3}
-                        iconSize={Theme.iconSize}
-                        style={themeStyles.icon}
-                        onPress={() => {
-                            openURL('https://twitter.com/renative');
-                        }}
-                    />
-                </FocusableView>
-            </ScrollView>
-        </View>
+                
+        </ScrollView>
+        // </FocusableView>
     );
 };
 

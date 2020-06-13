@@ -36,7 +36,7 @@ const Featured = () => {
             <Image style={styles.image} source={image} />
             <View style={styles.infoSection}>
                 <Subtitle text={"2009"} size={"sh1"}/>
-                <Title text={"Avatar"} size={"h1"}/>
+                <Title text={"Avatar"} size={"h1"} bold/>
             </View>
         </View>
     )
