@@ -7,7 +7,6 @@ import config from '../platformAssets/renative.runtime.json';
 import packageJson from '../package.json';
 import icon from '../platformAssets/runtime/logo.png';
 import { GlobalContext } from './app/context/globalState';
-import SearchBar from './app/components/molecules/searchBar'
 import Featured from './app/components/molecules/featured'
 import Carousel from './app/components/molecules/carousel'
 
@@ -20,6 +19,9 @@ const styles = StyleSheet.create({
         marginBottom: getScaledValue(30),
         width: getScaledValue(83),
         height: getScaledValue(97),
+    },
+    homeContainer:{
+        
     }
 });
 
@@ -52,7 +54,6 @@ const ScreenHome = (props) => {
             if (direction === 'up') scrollRef.current.scrollTo({ y: 0 });
         };
         useEffect(() => function cleanup() {
-            
             setFocus('menu');
         }, []);
     }
@@ -60,11 +61,7 @@ const ScreenHome = (props) => {
 
     
     return (
-        // <FocusableView style={{ marginTop: 20, flexDirection: 'row' }} onBecameFocused={handleFocus}>
-
-            
             <ScrollView style={themeStyles.screen}>
-                <SearchBar />
                 <Featured />
                 <FlatList 
                     initialNumToRender={3}
@@ -72,9 +69,7 @@ const ScreenHome = (props) => {
                     keyExtractor={item => item.id}
                     renderItem={item=><Carousel />}
                 />
-                
-        </ScrollView>
-        // </FocusableView>
+            </ScrollView>
     );
 };
 
