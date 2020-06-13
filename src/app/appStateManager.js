@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import { AppState, View, Text, AsyncStorage } from 'react-native';
-import { GlobalContext } from '../app/context/globalState'
+import { GlobalContext } from './context/globalState'
 
-export const AppStateManager = ( props : any ) => {
+export const AppStateManager = ( props) => {
 
     const [ appState , setAppState ] = React.useState(AppState.currentState)
 
     const { setPopularMovies, setAPIConfig, setDocumentaries, setPopularTvSeries, setFamilyMovies } = useContext(GlobalContext)
 
-    const handleAppStateChange = (state:any) => {
+    const handleAppStateChange = (state) => {
 
 
         switch(state){
