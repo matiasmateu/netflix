@@ -7,6 +7,7 @@ import config from '../platformAssets/renative.runtime.json';
 import packageJson from '../package.json';
 import icon from '../platformAssets/runtime/logo.png';
 import { GlobalContext } from './app/context/globalState';
+import SearchBar from './app/components/molecules/searchBar'
 
 const styles = StyleSheet.create({
     appContainerScroll: {
@@ -58,6 +59,7 @@ const ScreenHome = (props) => {
     
     return (
         <View style={themeStyles.screen}>
+            <SearchBar />
             <ScrollView
                 style={{ backgroundColor: bgColor }}
                 ref={scrollRef}
