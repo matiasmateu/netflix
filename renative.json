@@ -1,0 +1,43 @@
+{
+    "projectName": "netflix",
+    "workspaceID": "rnv",
+    "paths": {
+        "appConfigsDir": "./appConfigs",
+        "platformTemplatesDir": "$RNV_HOME/platformTemplates",
+        "entryDir": "./",
+        "platformAssetsDir": "./platformAssets",
+        "platformBuildsDir": "./platformBuilds",
+        "projectConfigDir": "./projectConfig"
+    },
+    "defaults": {
+        "title": "Netflix",
+        "id": "com.matiasmateu.netflix",
+        "supportedPlatforms": [
+            "android",
+            "androidtv",
+            "androidwear",
+            "chromecast",
+            "firefoxos",
+            "firefoxtv",
+            "ios",
+            "kaios",
+            "macos",
+            "tizen",
+            "tizenmobile",
+            "tizenwatch",
+            "tvos",
+            "web",
+            "web-next",
+            "webos",
+            "windows"
+        ]
+    },
+    "templates": {
+        "renative-template-hello-world": {
+            "version": "0.29.0"
+        }
+    },
+    "currentTemplate": "renative-template-hello-world",
+    "isNew": true,
+    "isMonorepo": false
+}
