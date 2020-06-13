@@ -1,11 +1,12 @@
-import React from 'react';
+import React , { useContext } from 'react';
 import { View, StyleSheet, Image } from 'react-native'
 import { getScaledValue } from 'renative'
 import image from '../../../../../platformAssets/runtime/avatarwide.jpeg'
 import Title from '../../atoms/title'
 import Subtitle from '../../atoms/subtitle'
 import { dw,dh } from '../../constants'
-
+import { GlobalContext } from '../../../context/globalState'
+import _ from 'lodash'
 const styles = StyleSheet.create({
     posterContainer:{
         flex:1,
@@ -26,16 +27,17 @@ const styles = StyleSheet.create({
     },
 })
 
-const Poster = () =>{
+const Poster = ({title,subtitle,baseURL,posterSize,posterPath}) =>{
+debugger
     return (
         <View style={styles.posterContainer}>
             <View style={styles.imageContainer}> 
-                <Image style={styles.image} source={image} />
+                <Image style={styles.image} source={{uri:`${baseURL}${posterSize}${posterPath}`}} />
             </View>
                 
             <View style={styles.infoContainer}>
-                <Title text={"Item One Two Three"} size={"h4"} />
-                <Subtitle text={"Categorie"} size={"sh4"} />
+                <Title text={title} size={"h4"} />
+                <Subtitle text={subtitle} size={"sh4"} />
             </View>
         </View>
     )

@@ -100,6 +100,15 @@ export const GlobalProvider = ({children}) => {
         }
     }
 
+    React.useEffect(()=>{
+        if (_.isEmpty(state.apiConfig)) setAPIConfig()
+        if (_.isEmpty(state.popularMovies)) setPopularMovies()
+        if (_.isEmpty(state.popularTvSeries)) setPopularTvSeries()
+        if (_.isEmpty(state.familyGenre)) setFamilyMovies()
+        if (_.isEmpty(state.documentaryGenre)) setDocumentaries()
+        return (()=>{})
+    },[])
+
     return (<GlobalContext.Provider value={{
         popularMovies:state.popularMovies,
         popularTvSeries:state.popularTvSeries,

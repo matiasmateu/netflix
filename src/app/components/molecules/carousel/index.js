@@ -1,9 +1,9 @@
-import React from 'react';
+import React , { useContext } from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native'
 import Title from '../../atoms/title'
 import Subtitle from '../../atoms/subtitle'
 import Poster from '../poster'
-
+import { GlobalContext } from '../../../context/globalState'
 const styles = StyleSheet.create({
     carouselContainer:{
         paddingTop:16
@@ -21,13 +21,16 @@ const styles = StyleSheet.create({
     }
 
 })
-const Carousel = () =>{
+const Carousel = ({data,title="",subtitle=""}) =>{
+    
+    const {  apiConfig } = useContext(GlobalContext)
+
     return (
         <View style={styles.carouselContainer}>
             <View style={styles.titleSection}>
                 <View >
-                    <Title text={"Category"} size={"h2"}/>
-                    <Subtitle text={"Descriptive Text"} size={"sh2"} />
+                    <Title text={title} size={"h2"}/>
+                    <Subtitle text={subtitle} size={"sh2"} />
                 </View>
                 <View>
                     <Title text={"MORE"}/>
@@ -37,9 +40,18 @@ const Carousel = () =>{
                 <FlatList 
                     horizontal
                     initialNumToRender={3}
-                    data={[{id:2},{id:3},{id:4},{id:5},{id:6},{id:7},{id:8},{id:9},{id:10},{id:11},{id:12},{id:13},{id:14},{id:15}]}
+                    data={data}
                     keyExtractor={item => item.id}
-                    renderItem={item=><Poster />}
+                    renderItem={data=>{
+                        debugger
+                        const { item } = data
+                        return <Poster 
+                                    title={item.title ? item.title : "Title"}
+                                    subtitle={"Description"}
+                                    baseURL={apiConfig.images ? apiConfig.images.base_url : "https://#"}
+                                    posterSize={apiConfig.images ? apiConfig.images.poster_sizes[1] : "original"}
+                                    posterPath={item.poster_path ? item.poster_path : "#.jpg"}/>
+                    }}
                 />
             </View>
         </View>
