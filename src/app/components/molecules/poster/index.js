@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
 })
 
 const Poster = ({title,subtitle,baseURL,posterSize,posterPath}) =>{
-debugger
     return (
         <View style={styles.posterContainer}>
             <View style={styles.imageContainer}> 

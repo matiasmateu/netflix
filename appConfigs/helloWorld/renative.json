@@ -40,7 +40,8 @@
                 "debug": {
                     "id": "renative.helloworld.debug"
                 }
-            }
+            },
+            "teamID": ""
         },
         "tvos": {
             "buildSchemes": {

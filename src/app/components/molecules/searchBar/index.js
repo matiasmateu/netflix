@@ -1,8 +1,9 @@
 import React from 'react';
-import { View , Text, StyleSheet } from 'react-native'
+import { View , Text, StyleSheet, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Title from '../../atoms/title'
 import { dw } from '../../constants'
+import { useNavigate } from 'renative'
 
 const styles = StyleSheet.create({
     searchBarContainer:{
@@ -19,14 +20,24 @@ const styles = StyleSheet.create({
     }
 })
 
-const SearchBar = () => {
+const SearchBar = (props) => {
+
+    const navigate = useNavigate(props);
+
     return (
         <View style={styles.searchBarContainer}>
             <View >
                 <Title text={"Discover"} size={"h2"}/>    
             </View>
             <View style={styles.textContainer}>  
-                <Icon name="search" size={20} color="white" />
+                <TouchableOpacity
+                    onPress={()=>{
+                        navigate('search',{}); 
+                    }}
+                >
+                    <Icon name="search" size={20} color="white" />
+                </TouchableOpacity>
+                
             </View>
         </View>
     )

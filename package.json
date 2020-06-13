@@ -30,7 +30,9 @@
         "react-native-vector-icons": "6.6.0",
         "react-native-web": "0.11.7",
         "react-native-web-image-loader": "0.0.5",
-        "renative": "0.29.0-alpha.38"
+        "renative": "0.29.0-alpha.38",
+        "react-native-video": "5.0.2",
+        "react-native-orientation-locker": "1.1.5"
     },
     "devDependencies": {
         "renative-template-hello-world": "0.29.0",

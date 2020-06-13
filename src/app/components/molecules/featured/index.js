@@ -10,12 +10,8 @@ const styles = StyleSheet.create({
     featuredContainer:{
         marginTop:32,
         width:"100%",
-        height:dh/2.5,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.8,
-        shadowRadius: 2,
-        elevation: 1,
+        height:dh/2.5
+
     },
     image: {
         marginBottom: getScaledValue(30),
