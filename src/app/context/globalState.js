@@ -27,8 +27,8 @@ export const GlobalProvider = ({children}) => {
         headers: {'Authorization': 'Bearer '+ "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZTNhM2YzOWVmZmY1MjJlZDk0MWU2ODVkNTdlMTVkNCIsInN1YiI6IjVlZTI0ZjhjOTBkZGUwMDAyMWFhZDVjMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Hp-8shLWOQgRIj7lwRGwITD7jLRvsFfx8NVCmBG3Nsc"}
     });
     
-     function filterCorruptedMovies(collection:Array<object>):Array<object>{
-        return collection.filter((movie:object)=>{
+     function filterCorruptedMovies(collection){
+        return collection.filter((movie)=>{
             if (
                 movie.hasOwnProperty("poster_path") 
                 && !_.isEmpty(movie.poster_path)

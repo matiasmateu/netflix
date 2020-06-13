@@ -10,7 +10,7 @@ import ScreenMyPage from '../screenMyPage';
 import ScreenModal from '../screenModal';
 import Menu, { DrawerButton } from '../menu';
 import Theme from '../theme';
-import { GlobalProvider } from '../app/context/globalState'
+import { GlobalProvider } from './context/globalState'
 import AppStateManager from './appStateManager'
 
 const Stack = createStackNavigator();

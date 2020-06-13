@@ -68,7 +68,6 @@ const ScreenHome = (props) => {
                     {config.welcomeMessage}
                 </Text>
                 <Text style={themeStyles.textH2}>
-v
                     {packageJson.version}
                 </Text>
                 <Text style={themeStyles.textH3}>
