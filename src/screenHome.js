@@ -9,6 +9,7 @@ import icon from '../platformAssets/runtime/logo.png';
 import { GlobalContext } from './app/context/globalState';
 import Featured from './app/components/molecules/featured'
 import Carousel from './app/components/molecules/carousel'
+import _ from 'lodash'
 
 const styles = StyleSheet.create({
     appContainerScroll: {
@@ -31,12 +32,18 @@ const ScreenHome = (props) => {
     const [bgColor, setBgColor] = useState(Theme.color1);
 
     const { 
-        apiConfig, 
-        popularMovies, 
-        popularTvSeries, 
-        familyGenre , 
-        documentaryGenre 
-    } = useContext(GlobalContext)
+        apiConfig,
+        popularMovies,
+        popularTvSeries,
+        familyGenre,
+        documentaryGenre,
+        setPopularMovies, 
+        setAPIConfig, 
+        setDocumentaries, 
+        setPopularTvSeries, 
+        setFamilyMovies } = useContext(GlobalContext)
+
+           
 
     const navigate = useNavigate(props);
     const openURL = useOpenURL();
@@ -55,20 +62,24 @@ const ScreenHome = (props) => {
         };
         useEffect(() => function cleanup() {
             setFocus('menu');
+            if (_.isEmpty(apiConfig)) setAPIConfig()
+        if (_.isEmpty(popularMovies)) setPopularMovies()
+        if (_.isEmpty(popularTvSeries)) setPopularTvSeries()
+        if (_.isEmpty(familyGenre)) setFamilyMovies()
+        if (_.isEmpty(documentaryGenre)) setDocumentaries()     
         }, []);
     }
 
 
+    debugger
     
     return (
             <ScrollView style={themeStyles.screen}>
                 <Featured />
-                <FlatList 
-                    initialNumToRender={3}
-                    data={[{id:1},{id:2},{id:3},{id:4}]}
-                    keyExtractor={item => item.id}
-                    renderItem={item=><Carousel />}
-                />
+                <Carousel data={popularMovies} title={"Popular Movies"} subtitle={"Descriptive Text"}/>
+                <Carousel data={popularTvSeries} title={"Popular Tv Series"} subtitle={"Descriptive Text"}/>
+                <Carousel data={familyGenre} title={"Family Movies"} subtitle={"Descriptive Text"}/>
+                <Carousel data={documentaryGenre} title={"Documentaries"} subtitle={"Descriptive Text"}/>
             </ScrollView>
     );
 };
