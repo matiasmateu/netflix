@@ -6,12 +6,18 @@ export const AppStateManager = ( props : any ) => {
 
     const [ appState , setAppState ] = React.useState(AppState.currentState)
 
+    const { setPopularMovies, setAPIConfig, setDocumentaries, setPopularTvSeries, setFamilyMovies } = useContext(GlobalContext)
+
     const handleAppStateChange = (state:any) => {
 
 
         switch(state){
             case 'active':
-                
+                setAPIConfig()
+                setPopularTvSeries()
+                setPopularMovies()
+                setFamilyMovies()
+                setDocumentaries()
             case 'inactive':
                 
             case 'background':   
