@@ -8,6 +8,7 @@ import packageJson from '../package.json';
 import icon from '../platformAssets/runtime/logo.png';
 import { GlobalContext } from './app/context/globalState';
 import SearchBar from './app/components/molecules/searchBar'
+import Featured from './app/components/molecules/featured'
 
 const styles = StyleSheet.create({
     appContainerScroll: {
@@ -60,6 +61,7 @@ const ScreenHome = (props) => {
     return (
         <View style={themeStyles.screen}>
             <SearchBar />
+            <Featured />
             <ScrollView
                 style={{ backgroundColor: bgColor }}
                 ref={scrollRef}
