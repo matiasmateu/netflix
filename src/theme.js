@@ -16,7 +16,7 @@ console.disableYellowBox = true;
 const theme = {
     color1: '#222222',
     color2: '#62DBFB',
-    color3: '#FB8D62',
+    color3: 'white',
     color4: '#FFFFFF',
     color5: '#AAAAAA',
     primaryFontFamily: 'TimeBurner',
@@ -98,6 +98,7 @@ export const themeStyles = StyleSheet.create({
         fontSize: getScaledValue(20),
     },
     screen: {
+        padding:8,
         position: 'absolute',
         backgroundColor: theme.color1,
         top: 0,
