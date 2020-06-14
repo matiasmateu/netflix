@@ -17,7 +17,9 @@
 
 ## Technologies used
 
-This app launches with a [React web app](https://reactjs.org/) and [React Native app](https://facebook.github.io/react-native/) and [Renative] (https://renative.org/) sharing a single code base. It shares the 'business logic' (_i.e. actions, containers, reducers_) across the platforms, whilst allowing flexibility in View components to ensure your project looks and feels native in each platform.
+[React]
+[React Native]
+[Renative Framework](https://renative.org/) that allows us to share a single code base and compile it in 11 different platforms. It shares the 'business logic' across the platforms, whilst allowing flexibility in View components to ensure your project looks and feels native in each platform.
 
 - A shared React and React Native structure
 - __State Management
@@ -26,13 +28,12 @@ This app launches with a [React web app](https://reactjs.org/) and [React Native
     - [react-navigation] for native mobile
     - [React Router] for web
 - __API
-    [https://developers.themoviedb.org/3/getting-started/introduction]
+    [https://developers.themoviedb.org]
 ---
 ## Usage
 
 
 #### 1. Clone and Install
-
 
 git clone https://github.com/matiasmateu/netflix.git
 
