@@ -2,14 +2,15 @@ import React, { createContext, useReducer } from 'react'
 import AppReducer from './appReducer'
 import axios from 'axios'
 import _ from 'lodash'
-
+import sanitizeUrl from '@braintree/sanitize-url'
 // Initial State
 export const initialState = {
         popularMovies:[],
         popularTvSeries:[],
         familyGenre:[],
         documentaryGenre:[],
-        apiConfig:{}
+        apiConfig:{},
+        searchResult:[]
 }
 
 // Create context
@@ -100,6 +101,20 @@ export const GlobalProvider = ({children}) => {
         }
     }
 
+    async function search(text){
+        try{
+            const response = await instance.get(`/search/movie?query=${text}`)
+            dispatch({
+                    type:"SET_SEARCH_RESULTS",
+                    payload:response.data.results
+            })
+        }catch(err){
+             debugger
+        }
+    }
+
+
+
     React.useEffect(()=>{
         if (_.isEmpty(state.apiConfig)) setAPIConfig()
         if (_.isEmpty(state.popularMovies)) setPopularMovies()
@@ -115,11 +130,13 @@ export const GlobalProvider = ({children}) => {
         familyGenre:state.familyGenre,
         documentaryGenre:state.documentaryGenre,
         apiConfig:state.apiConfig,
+        searchResult:state.searchResult,
         setPopularMovies,
         setPopularTvSeries,
         setFamilyMovies,
         setDocumentaries,
-        setAPIConfig
+        setAPIConfig,
+        search
     }}>
         {children}
     </GlobalContext.Provider>); 

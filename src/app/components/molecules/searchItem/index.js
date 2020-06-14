@@ -1,6 +1,7 @@
 import React from 'react';
-import { View , Text, StyleSheet, Image} from 'react-native'
+import { View , Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
 import { dh } from '../../constants'
+import { useNavigate } from 'renative'
 import image from '../../../../../platformAssets/runtime/avatarwide.jpeg'
 import Title from '../../atoms/title'
 import Subtitle from '../../atoms/subtitle'
@@ -43,29 +44,30 @@ const styles = StyleSheet.create({
     }
 })
 
-const SearchItem = ({votes = 0,rating = 0, overview = "Vitae lectus",title="Title",imageURL = "https://creativereview.imgix.net/content/uploads/2019/12/joker_full.jpg"}) => {
-
+const SearchItem = (props) => {
     return (
-        <View style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={()=>{useNavigate(props)('modal',{},props)}}>
             <View style={styles.imageContainer}>
-                <Image style={styles.image} source={{uri:imageURL}} />
+                <Image style={styles.image} source={{uri:props.imageURL}} />
             </View>
             <View style={styles.infoContainer}>
                 <View style={styles.titleSection}>
-                    <Subtitle text={title} size={"sh4"} />
-                    <Text style={styles.overview}>{overview}</Text>
+                    <Subtitle text={props.title} size={"sh4"} />
+                    <Text 
+                        numberOfLines={3}
+                        style={styles.overview}>{props.overview}</Text>
                 </View>
                 <View style={styles.ratingSection}>
-                    <Rating color={ rating > 0 ? "white" : "gray"}/>
-                    <Rating color={ rating > 1 ? "white" : "gray"}/>
-                    <Rating color={ rating > 2 ? "white" : "gray"}/>
-                    <Rating color={ rating > 3 ? "white" : "gray"}/>
-                    <Rating color={ rating > 4 ? "white" : "gray"}/>
-                    <Text style={styles.votes}>{votes}</Text>
+                    <Rating color={ props.rating > 0 ? "white" : "gray"}/>
+                    <Rating color={ props.rating > 1 ? "white" : "gray"}/>
+                    <Rating color={ props.rating > 2 ? "white" : "gray"}/>
+                    <Rating color={ props.rating > 3 ? "white" : "gray"}/>
+                    <Rating color={ props.rating > 4 ? "white" : "gray"}/>
+                    <Text style={styles.votes}>{props.votes}</Text>
                 </View>
                 
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 
