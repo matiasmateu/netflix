@@ -5,7 +5,6 @@ import { withFocusable } from '@noriginmedia/react-spatial-navigation';
 import Theme, { themeStyles, hasWebFocusableUI } from './theme';
 import Title from './app/components/atoms/title'
 import Subtitle from './app/components/atoms/subtitle'
-import image from '../platformAssets/runtime/avatarwide.jpeg'
 import { GlobalContext } from './app/context/globalState'
 import RoundButton from './app/components/atoms/roundButton'
 import _ from 'lodash'
