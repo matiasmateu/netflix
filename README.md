@@ -1,10 +1,9 @@
 # Netflix Clone ( in progress )
 
-<img src="src/app/assets/1.png"></img>
-<img src="src/app/assets/2.png"></img>
-<img src="src/app/assets/3.png"></img>
-<img src="src/app/assets/4.png"></img>
-<img src="src/app/assets/5.png"></img>
+<img width="100" src="src/app/assets/1.png"></img>
+<img width="100"src="src/app/assets/2.png"></img>
+<img width="100"src="src/app/assets/4.png"></img>
+<img width="100"src="src/app/assets/5.png"></img>
 <img src="src/app/assets/6.png"></img>
 
 ---
