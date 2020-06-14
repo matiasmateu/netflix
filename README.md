@@ -1,6 +1,6 @@
 # Netflix Clone ( in progress )
 
-[![WATCH THE VIDEO](https://img.youtube.com/vi/LVS6AfRVXeU/0.jpg)](https://www.youtube.com/watch?v=LVS6AfRVXeU)
+[![WATCH THE VIDEO]](https://www.youtube.com/watch?v=LVS6AfRVXeU)
 
 
 
