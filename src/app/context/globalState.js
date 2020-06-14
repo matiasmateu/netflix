@@ -10,8 +10,7 @@ export const initialState = {
         familyGenre:[],
         documentaryGenre:[],
         apiConfig:{},
-        searchResult:[],
-        movieGenres:[]
+        searchResult:[]
 }
 
 // Create context
@@ -102,35 +101,16 @@ export const GlobalProvider = ({children}) => {
         }
     }
 
-    async function setMovieGenres(){
-        try{
-            const response = await instance.get('/genre/movie/list')
-            dispatch({
-                    type:"SET_MOVIE_GENRES",
-                    payload:response.data.genres
-            })
-        }catch(err){
-             
-        }
-    }
-
     async function search(text){
         try{
             const response = await instance.get(`/search/movie?query=${text}`)
-            
             dispatch({
                     type:"SET_SEARCH_RESULTS",
                     payload:response.data.results
             })
         }catch(err){
+             debugger
         }
-    }
-
-    function deleteSearchResults(){
-            dispatch({
-                    type:"DELETE_SEARCH_RESULTS",
-                    payload:null
-            })
     }
 
 
@@ -151,15 +131,12 @@ export const GlobalProvider = ({children}) => {
         documentaryGenre:state.documentaryGenre,
         apiConfig:state.apiConfig,
         searchResult:state.searchResult,
-        movieGenres:state.movieGenres,
         setPopularMovies,
         setPopularTvSeries,
         setFamilyMovies,
         setDocumentaries,
         setAPIConfig,
-        search,
-        setMovieGenres,
-        deleteSearchResults
+        search
     }}>
         {children}
     </GlobalContext.Provider>); 
