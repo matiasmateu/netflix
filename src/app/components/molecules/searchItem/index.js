@@ -2,7 +2,6 @@ import React from 'react';
 import { View , Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
 import { dh } from '../../constants'
 import { useNavigate } from 'renative'
-import image from '../../../../../platformAssets/runtime/avatarwide.jpeg'
 import Title from '../../atoms/title'
 import Subtitle from '../../atoms/subtitle'
 import Rating from '../../atoms/rating'

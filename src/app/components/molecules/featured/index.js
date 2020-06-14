@@ -3,7 +3,6 @@ import { View , Image, StyleSheet } from 'react-native'
 import { getScaledValue } from 'renative'
 import Title from '../../atoms/title'
 import Subtitle from '../../atoms/subtitle'
-import image from '../../../../../platformAssets/runtime/avatarwide.jpeg';
 import { dw,dh} from '../../constants'
 
 const styles = StyleSheet.create({
