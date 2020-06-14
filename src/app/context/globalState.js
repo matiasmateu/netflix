@@ -126,6 +126,13 @@ export const GlobalProvider = ({children}) => {
         }
     }
 
+    function deleteSearchResults(){
+            dispatch({
+                    type:"DELETE_SEARCH_RESULTS",
+                    payload:null
+            })
+    }
+
 
 
     React.useEffect(()=>{
@@ -151,7 +158,8 @@ export const GlobalProvider = ({children}) => {
         setDocumentaries,
         setAPIConfig,
         search,
-        setMovieGenres
+        setMovieGenres,
+        deleteSearchResults
     }}>
         {children}
     </GlobalContext.Provider>); 
