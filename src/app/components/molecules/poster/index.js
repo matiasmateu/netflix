@@ -10,8 +10,8 @@ import _ from 'lodash'
 const styles = StyleSheet.create({
     posterContainer:{
         flex:1,
-        width: dw/2.5,
-        height:dh/2.5,
+        width: getScaledValue(200),
+        height: getScaledValue(350),
         padding:8,
         justifyContent:"space-between"
     },  
@@ -32,7 +32,7 @@ const Poster = ({title,subtitle,baseURL,posterSize,posterPath}) =>{
     return (
         <View style={styles.posterContainer}>
             <View style={styles.imageContainer}> 
-                <Image style={styles.image} source={{uri:`${baseURL}${posterSize}${posterPath}`}} />
+                <Image style={styles.image} source={{uri:`${baseURL}w500${posterPath}`}} />
             </View>
                 
             <View style={styles.infoContainer}>
