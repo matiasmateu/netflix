@@ -52,7 +52,7 @@ const SearchItem = (props) => {
             </View>
             <View style={styles.infoContainer}>
                 <View style={styles.titleSection}>
-                    <Subtitle text={props.title} size={"sh4"} />
+                    <Title text={props.title} size={"h4"} bold />
                     <Text 
                         numberOfLines={3}
                         style={styles.overview}>{props.overview}</Text>

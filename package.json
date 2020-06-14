@@ -38,7 +38,8 @@
     "devDependencies": {
         "renative-template-hello-world": "0.29.0",
         "rnv": "0.29.0",
-        "xcode": "2.1.0"
+        "xcode": "2.1.0",
+        "jetifier": "1.6.5"
     },
     "optionalDependencies": {
         "ios-deploy": "1.10.0"

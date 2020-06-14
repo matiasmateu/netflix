@@ -35,7 +35,7 @@ const Poster = ({title,subtitle,baseURL,posterSize,posterPath}) =>{
             </View>
                 
             <View style={styles.infoContainer}>
-                <Title text={title} size={"h4"} />
+                <Title text={title} size={"h4"} bold/>
                 <Subtitle text={subtitle} size={"sh4"} />
             </View>
         </View>
