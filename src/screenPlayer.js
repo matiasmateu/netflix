@@ -100,7 +100,6 @@ const ScreenPlayer = props => {
             <Video
                 source={bunnyVideo}
                 style={styles.video}
-                controls={true}
                 resizeMode={'cover'}
             />
         </SafeAreaView>
