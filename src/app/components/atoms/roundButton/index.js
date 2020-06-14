@@ -1,17 +1,33 @@
 import React from 'react';
-import { TouchableOpacity , Text } from 'react-native'
-import { useNavigate } from 'renative'
+import { TouchableOpacity , Text, StyleSheet } from 'react-native'
+import { useNavigate, Icon } from 'renative'
 
+const styles = StyleSheet.create({
+    button:{
+        width:50,
+        height:50,
+        backgroundColor:"red",
+        justifyContent:"center",
+        alignItems:"center",
+        borderRadius:50
+    }
+})
 
 const RoundButton = (props) =>{
     const navigate = useNavigate(props);
     return (
         <TouchableOpacity 
-        style={{backgroundColor:"blue"}} 
+        style={styles.button} 
         onPress={()=>{
             navigate('player',{}); 
         }}>
-            <Text style={{color:"white"}}>Play</Text>
+            <Icon
+            iconFont="ionicons"
+            iconName="md-play"
+            iconColor={"white"}
+            size={20}
+            
+        />
         </TouchableOpacity>
     )
 }
