@@ -1,5 +1,8 @@
 # Netflix Clone ( in progress )
 
+[![Watch the video](https://youtu.be/LVS6AfRVXeU)
+
+
 <img width="200" src="src/app/assets/1.png"></img>
 <img width="200" src="src/app/assets/2.png"></img>
 <img width="200" src="src/app/assets/4.png"></img>
