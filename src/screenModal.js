@@ -51,7 +51,7 @@ const ScreenModal = props => {
         }, []);
     }
 
-    debugger
+      
 
     return (
         <SafeAreaView style={themeStyles.screenModal}>
@@ -77,7 +77,7 @@ const ScreenModal = props => {
                     />
                 </View>
                 <View style={{flex:2}}>
-                    <Title text={props.route.params.title ? props.route.params.title : props.route.params.name ? props.route.params.name : ""} size={"h1"}  />
+                    <Title text={props.route.params.title ? props.route.params.title : props.route.params.name ? props.route.params.name : ""} size={"h1"} bold  />
                     <Subtitle text={"Subtitle"} size={"sh1"} />
                     <RoundButton navigation={props.navigation} />
                     <Text style={{color:"white",paddingTop:8}}>{props.route.params.overview}</Text>

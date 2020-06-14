@@ -32,6 +32,12 @@ export default (state, action) => {
                 ...state,
                 searchResult: action.payload
             }
+            case "SET_MOVIE_GENRES":
+                
+            return {
+                ...state,
+                movieGenres: action.payload
+            }
         default:
             return state
     }

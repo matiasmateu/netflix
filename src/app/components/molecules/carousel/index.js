@@ -5,6 +5,8 @@ import Subtitle from '../../atoms/subtitle'
 import { useNavigate } from 'renative'
 import Poster from '../poster'
 import { GlobalContext } from '../../../context/globalState'
+import _ from 'lodash'
+
 const styles = StyleSheet.create({
     carouselContainer:{
         paddingTop:16
@@ -26,7 +28,15 @@ const Carousel = (props) =>{
 
     const navigate = useNavigate(props);
 
-    const {  apiConfig } = useContext(GlobalContext)
+    const {  apiConfig, movieGenres } = useContext(GlobalContext)
+
+    function getYear (item){
+        if (!_.isEmpty(item)){
+            if ( item.hasOwnProperty("release_date")) return item.release_date.slice(0,4)
+            if ( item.hasOwnProperty("first_air_date")) return item.first_air_date.slice(0,4)
+        }
+        return "-"
+    }
 
     return (
         <View style={styles.carouselContainer}>
@@ -55,7 +65,7 @@ const Carousel = (props) =>{
                                 >
                                  <Poster 
                                     title={item.title ? item.title : "Title"}
-                                    subtitle={"Description"}
+                                    subtitle={getYear(item)}
                                     baseURL={apiConfig.images ? apiConfig.images.base_url : "https://#"}
                                     posterSize={apiConfig.images ? apiConfig.images.poster_sizes[1] : "original"}
                                     posterPath={item.poster_path ? item.poster_path : "#.jpg"}/>

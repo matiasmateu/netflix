@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
         color:"white"
     },
     sh1:{
-        fontSize:16
+        fontSize:20
     },
     sh2:{
         fontSize:14

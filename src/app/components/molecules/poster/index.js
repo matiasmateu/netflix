@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
         flex:1,
         width: dw/2.5,
         height:dh/2.5,
-        padding:8
+        padding:8,
+        justifyContent:"space-between"
     },  
     imageContainer:{
         flex:4
@@ -35,7 +36,7 @@ const Poster = ({title,subtitle,baseURL,posterSize,posterPath}) =>{
             </View>
                 
             <View style={styles.infoContainer}>
-                <Title text={title} size={"h4"} />
+                <Title text={title} size={"h4"} bold/>
                 <Subtitle text={subtitle} size={"sh4"} />
             </View>
         </View>
