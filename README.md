@@ -1,6 +1,7 @@
 # Netflix Clone ( in progress )
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LVS6AfRVXeU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![WATCH THE VIDEO](https://img.youtube.com/vi/LVS6AfRVXeU/0.jpg)](https://www.youtube.com/watch?v=LVS6AfRVXeU)
+
 
 
 <img width="200" src="src/app/assets/1.png"></img>
