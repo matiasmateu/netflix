@@ -1,7 +1,6 @@
 import React , { useContext } from 'react';
 import { View, StyleSheet, Image } from 'react-native'
 import { getScaledValue } from 'renative'
-import image from '../../../../../platformAssets/runtime/avatarwide.jpeg'
 import Title from '../../atoms/title'
 import Subtitle from '../../atoms/subtitle'
 import { dw,dh } from '../../constants'

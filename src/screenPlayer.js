@@ -3,11 +3,7 @@ import { Text, SafeAreaView, ScrollView, Image, View, Dimensions } from 'react-n
 import { Button, getScaledValue, usePop, StyleSheet } from 'renative';
 import { withFocusable } from '@noriginmedia/react-spatial-navigation';
 import Theme, { themeStyles, hasWebFocusableUI } from './theme';
-import Title from './app/components/atoms/title'
-import Subtitle from './app/components/atoms/subtitle'
-import image from '../platformAssets/runtime/avatarwide.jpeg'
 import { GlobalContext } from './app/context/globalState'
-import RoundButton from './app/components/atoms/roundButton'
 import Video from 'react-native-video';
 import bunnyVideo from '../platformAssets/runtime/big_buck_bunny.mp4'
 import Orientation from 'react-native-orientation-locker';
