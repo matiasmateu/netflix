@@ -46,3 +46,24 @@ git clone https://github.com/matiasmateu/netflix.git
 npx rnv run -p ios 
 npx rnv run -p web
 ```
+
+## Roadmap
+
+v 2.0.0
+- Fix Focus-Clickable elements in Web version
+- Fix Top Menu ( Search Bar )
+- Exclude from Search Result corrupted data
+- Persist Images
+- Skeleton Placeholder
+- Animation
+- Custom Controls in the Video Player
+- Auth and Token Encryption
+- Enzyme & Detox
+- Sentry
+- Theme unification & Customization Panel
+
+v 3.0.0
+- Expand Categories from MORE button
+- Add Movie Recommendations
+- Stream content online
+
