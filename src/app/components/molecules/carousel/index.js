@@ -38,6 +38,14 @@ const Carousel = (props) =>{
         return "-"
     }
 
+    function getTitle(item){
+        if (!_.isEmpty(item)){
+            if ( item.hasOwnProperty("title")) return item.title
+            if ( item.hasOwnProperty("name")) return item.name
+        }
+        return "-"
+    }
+
     return (
         <View style={styles.carouselContainer}>
             <View style={styles.titleSection}>
@@ -51,6 +59,7 @@ const Carousel = (props) =>{
             </View>
             <View style={styles.carouselContainer}>
                 <FlatList 
+                    showsHorizontalScrollIndicator={false}
                     horizontal
                     initialNumToRender={3}
                     data={props.data}
@@ -64,7 +73,7 @@ const Carousel = (props) =>{
                                 }}
                                 >
                                  <Poster 
-                                    title={item.title ? item.title : "Title"}
+                                    title={getTitle(item)}
                                     subtitle={getYear(item)}
                                     baseURL={apiConfig.images ? apiConfig.images.base_url : "https://#"}
                                     posterSize={apiConfig.images ? apiConfig.images.poster_sizes[1] : "original"}
