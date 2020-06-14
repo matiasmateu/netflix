@@ -15,6 +15,7 @@ import { GlobalProvider } from './context/globalState'
 import AppStateManager from './appStateManager'
 import SearchBar from '../app/components/molecules/searchBar'
 
+
 const Stack = createStackNavigator();
 const ModalStack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -29,7 +30,6 @@ const styles = StyleSheet.create({
         backgroundColor: Theme.color1,
         borderBottomWidth: 0,
         height: getScaledValue(70)
-        
     }
 });
 
@@ -40,7 +40,6 @@ const StackNavigator = ({ navigation }) => (
             headerStyle: styles.header,
             headerTintColor: Theme.color3
         }}
-        
     >
         <Stack.Screen
             name="home"
