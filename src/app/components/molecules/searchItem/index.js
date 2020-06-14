@@ -29,30 +29,39 @@ const styles = StyleSheet.create({
         flexDirection:"column"
     },
     ratingSection:{
-        flexDirection:"row"
+        flexDirection:"row",
+        alignItems:"center"
     },
     overview:{
         color:"white",
         paddingTop:8
+    },
+    votes:{
+        color:"gray",
+        paddingLeft:8,
+        fontSize:12
     }
 })
 
-const SearchItem = () => {
+const SearchItem = ({votes = 0,rating = 0, overview = "Vitae lectus",title="Title",imageURL = "https://creativereview.imgix.net/content/uploads/2019/12/joker_full.jpg"}) => {
 
     return (
         <View style={styles.container}>
             <View style={styles.imageContainer}>
-                <Image style={styles.image} source={image} />
+                <Image style={styles.image} source={{uri:imageURL}} />
             </View>
             <View style={styles.infoContainer}>
                 <View style={styles.titleSection}>
-                    <Subtitle text={"Item"} size={"sh4"} />
-                    <Text style={styles.overview}>Vitae lectus erat mollit odio luctus aeneea sit adapsuy</Text>
+                    <Subtitle text={title} size={"sh4"} />
+                    <Text style={styles.overview}>{overview}</Text>
                 </View>
                 <View style={styles.ratingSection}>
-                    <Rating />
-                    <Rating />
-                    <Rating />
+                    <Rating color={ rating > 0 ? "white" : "gray"}/>
+                    <Rating color={ rating > 1 ? "white" : "gray"}/>
+                    <Rating color={ rating > 2 ? "white" : "gray"}/>
+                    <Rating color={ rating > 3 ? "white" : "gray"}/>
+                    <Rating color={ rating > 4 ? "white" : "gray"}/>
+                    <Text style={styles.votes}>{votes}</Text>
                 </View>
                 
             </View>

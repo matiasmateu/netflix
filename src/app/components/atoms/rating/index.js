@@ -8,13 +8,13 @@ const styles = StyleSheet.create({
     }
 })
 
-export const Rating = ({rating}) => {
+export const Rating = ({color="white"}) => {
     return (
         <View>
             <Icon
             iconFont="ionicons"
             iconName="md-star"
-            iconColor={"white"}
+            iconColor={color}
             size={16}
             style={styles.icon}
             />
