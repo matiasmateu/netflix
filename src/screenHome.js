@@ -75,7 +75,7 @@ const ScreenHome = (props) => {
     
     return (
             <ScrollView style={themeStyles.screen}>
-                <Featured />
+                {/* <Featured /> */}
                 <Carousel data={popularMovies} title={"Popular Movies"} subtitle={"Descriptive Text"} navigation={props.navigation}/>
                 <Carousel data={popularTvSeries} title={"Popular Tv Series"} subtitle={"Descriptive Text"} navigation={props.navigation}/>
                 <Carousel data={familyGenre} title={"Family Movies"} subtitle={"Descriptive Text"} navigation={props.navigation}/>
