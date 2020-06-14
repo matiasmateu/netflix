@@ -5,7 +5,7 @@ import { withFocusable } from '@noriginmedia/react-spatial-navigation';
 import Theme, { themeStyles, hasWebFocusableUI } from './theme';
 import { GlobalContext } from './app/context/globalState'
 import Video from 'react-native-video';
-import bunnyVideo from '../platformAssets/runtime/big_buck_bunny.mp4'
+import bunnyVideo from './app/assets/big_buck_bunny.mp4'
 import Orientation from 'react-native-orientation-locker';
 import { dw,dh } from './app/components/constants'
 const styles = StyleSheet.create({
