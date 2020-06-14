@@ -3,18 +3,24 @@ import { Text, View, ScrollView } from 'react-native';
 import { withFocusable } from '@noriginmedia/react-spatial-navigation';
 import { themeStyles, hasWebFocusableUI } from './theme';
 import { useNavigate } from 'renative'
+import SearchItem from './app/components/molecules/searchItem'
 
 const ScreenSearch = (props) => {
     
-    const navigate = useNavigate(props);
-
     return (<View style={themeStyles.screen}>
         <ScrollView contentContainerStyle={themeStyles.container}>
-            <Text style={themeStyles.textH2}>This is my Page!</Text>
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
         </ScrollView>
     </View>)
 }
 
 export default (hasWebFocusableUI
-    ? withFocusable()(ScreenMyPage)
+    ? withFocusable()(ScreenSearch)
     : ScreenSearch);
