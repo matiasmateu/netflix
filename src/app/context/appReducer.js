@@ -27,6 +27,11 @@ export default (state, action) => {
                 ...state,
                 documentaryGenre: action.payload
             }
+        case "SET_SEARCH_RESULTS":
+            return {
+                ...state,
+                searchResult: action.payload
+            }
         default:
             return state
     }
