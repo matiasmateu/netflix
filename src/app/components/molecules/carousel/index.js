@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         justifyContent:"space-between",
         alignItems:"center",
         paddingTop:16,
-        paddingLeft:16,
+        paddingLeft:8,
         paddingRight:24
     },
     carouselContainer:{
