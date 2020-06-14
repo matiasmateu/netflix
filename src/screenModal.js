@@ -8,6 +8,7 @@ import Subtitle from './app/components/atoms/subtitle'
 import image from '../platformAssets/runtime/avatarwide.jpeg'
 import { GlobalContext } from './app/context/globalState'
 import RoundButton from './app/components/atoms/roundButton'
+import _ from 'lodash'
 
 const styles = StyleSheet.create({
     header: {
@@ -30,6 +31,20 @@ const styles = StyleSheet.create({
         top:0,
         zIndex:10,
         position:'absolute'
+    },
+    playButtonContainer:{
+        position:"absolute",
+        top:-25,
+        right:50
+    },
+    infoContainer:{
+        paddingTop:32,
+        paddingLeft:8,
+        paddingRight:8
+    },
+    image:{
+        width:"100%",
+        height: getScaledValue(500),
     }
 
 });
@@ -38,7 +53,7 @@ const ScreenModal = props => {
 
     const pop = usePop(props);
 
-    const {  apiConfig } = useContext(GlobalContext)
+    const {  apiConfig, movieGenres } = useContext(GlobalContext)
 
     if (hasWebFocusableUI) {
         useEffect(() => {
@@ -51,14 +66,24 @@ const ScreenModal = props => {
         }, []);
     }
 
-    debugger
+    function getGenres(){
+        let genres = "-"
+        if (!_.isEmpty(movieGenres) && props.route.params.hasOwnProperty("genre_ids") && props.route.params.genre_ids){
+            genres = movieGenres.filter(genre=>props.route.params.genre_ids.indexOf(genre.id)>0)
+            if (!_.isEmpty(genres)){
+                return genres.map(genre=>genre.name).join(" - ")
+            }
+        }
+        return " "
+    }
+      
 
     return (
         <SafeAreaView style={themeStyles.screenModal}>
-            <View style={{flex:1}}>
-                <View style={{flex:6}}>
-                    
-                    <Image style={{width:"100%",height:"100%"}} source={{uri:`${apiConfig.images.base_url}original${props.route.params.poster_path}`}} />
+            <ScrollView>
+            
+                <View >
+                    <Image style={styles.image} source={{uri:`${apiConfig.images.base_url}original${props.route.params.poster_path}`}} />
                     <Button
                         style={styles.icon}
                         focusKey="close"
@@ -76,14 +101,20 @@ const ScreenModal = props => {
                         }}
                     />
                 </View>
-                <View style={{flex:2}}>
-                    <Title text={props.route.params.title ? props.route.params.title : props.route.params.name ? props.route.params.name : ""} size={"h1"} bold  />
-                    <Subtitle text={"Subtitle"} size={"sh1"} />
-                    <RoundButton navigation={props.navigation} />
-                    <Text style={{color:"white",paddingTop:8}}>{props.route.params.overview}</Text>
+                <View >
+                    <View style={styles.playButtonContainer}>
+                        <RoundButton navigation={props.navigation} />
+                    </View>
+                    <View style={styles.infoContainer}>
+                        <Title text={props.route.params.title ? props.route.params.title : props.route.params.name ? props.route.params.name : ""} size={"h1"} bold  />
+                        <Subtitle text={getGenres()} size={"sh3"} />
+                        <Text style={{color:"white",paddingTop:8}}>{props.route.params.overview}</Text>
+                    </View>
+
+                    
                 </View>
-            </View>
-            
+
+            </ScrollView>
         </SafeAreaView>
     );
 };
