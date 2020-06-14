@@ -63,7 +63,7 @@ const Carousel = (props) =>{
                     horizontal
                     initialNumToRender={3}
                     data={props.data}
-                    keyExtractor={item => item.id}
+                    keyExtractor={item => item.id.toString()}
                     renderItem={data=>{
                         const { item } = data
                         return (
