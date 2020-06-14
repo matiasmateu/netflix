@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         color:"white"
     },
     h1:{
-        fontSize:22
+        fontSize:30
     },
     h2:{
         fontSize:20
@@ -43,11 +43,7 @@ const Title = ({text="",size="p",bold}) => {
         : styles.p
         
     return (
-        <Text 
-            numberOfLines={1}
-            style={[styles.title,titleSize,bold ? styles.bold : null]}>
-                {text}
-        </Text>
+        <Text style={[styles.title,titleSize,bold ? styles.bold : null]}>{text}</Text>
     )
 }
 

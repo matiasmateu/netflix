@@ -16,8 +16,6 @@ export const AppStateManager = ( props) => {
         setAPIConfig, 
         setDocumentaries, 
         setPopularTvSeries, 
-        setMovieGenres,
-        movieGenres,
         setFamilyMovies } = useContext(GlobalContext)
 
     const handleAppStateChange = (state) => {
@@ -31,7 +29,6 @@ export const AppStateManager = ( props) => {
                 if (_.isEmpty(popularTvSeries)) setPopularTvSeries()
                 if (_.isEmpty(familyGenre)) setFamilyMovies()
                 if (_.isEmpty(documentaryGenre)) setDocumentaries()
-                if (_.isEmpty(movieGenres)) setMovieGenres()
             case 'inactive':
                 
             case 'background':   
@@ -44,13 +41,12 @@ export const AppStateManager = ( props) => {
     
     React.useEffect(()=>{
         AppState.addEventListener('change',handleAppStateChange)
-     
+        debugger
         if (_.isEmpty(apiConfig)) setAPIConfig()
         if (_.isEmpty(popularMovies)) setPopularMovies()
         if (_.isEmpty(popularTvSeries)) setPopularTvSeries()
         if (_.isEmpty(familyGenre)) setFamilyMovies()
         if (_.isEmpty(documentaryGenre)) setDocumentaries()
-        if (_.isEmpty(movieGenres)) setMovieGenres()
         return (()=>{
             AppState.removeEventListener('change',handleAppStateChange)
         })

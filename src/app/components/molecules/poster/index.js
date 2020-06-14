@@ -12,8 +12,7 @@ const styles = StyleSheet.create({
         flex:1,
         width: dw/2.5,
         height:dh/2.5,
-        padding:8,
-        justifyContent:"space-between"
+        padding:8
     },  
     imageContainer:{
         flex:4
