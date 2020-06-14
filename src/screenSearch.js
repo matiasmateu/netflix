@@ -1,4 +1,4 @@
-import React , { useState, useContext } from 'react';
+import React , { useState, useContext, useEffect } from 'react';
 import { Text, View, ScrollView, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import { withFocusable } from '@noriginmedia/react-spatial-navigation';
 import { themeStyles, hasWebFocusableUI } from './theme';
@@ -22,12 +22,19 @@ const ScreenSearch = (props) => {
 
     const [ searchText , setSearchText ] = useState("") 
 
-    const { search,searchResult,apiConfig } = useContext(GlobalContext)
+    const { search,searchResult,apiConfig,deleteSearchResults } = useContext(GlobalContext)
 
     const handleSearch = (e) =>{
         const { text } = e.nativeEvent
         search(text)
     }
+
+    useEffect(() => {
+
+        return () => {
+            deleteSearchResults()
+        };
+      }, []);
 
     return (<View style={themeStyles.screen}>
         <TextInput 
