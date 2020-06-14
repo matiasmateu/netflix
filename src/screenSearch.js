@@ -31,6 +31,8 @@ const ScreenSearch = (props) => {
 
     return (<View style={themeStyles.screen}>
         <TextInput 
+            placeholderTextColor={"gray"}
+            placeholder={"Search"}
             style={styles.searchInput}
             onSubmitEditing={handleSearch}
         />
