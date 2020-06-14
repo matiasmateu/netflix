@@ -42,11 +42,11 @@ const Carousel = (props) =>{
         <View style={styles.carouselContainer}>
             <View style={styles.titleSection}>
                 <View >
-                    <Title text={props.title} size={"h2"}/>
-                    <Subtitle text={props.subtitle} size={"sh2"} />
+                    <Title text={props.title} size={"h2"} bold/>
+                    {/* <Subtitle text={props.subtitle} size={"sh2"} /> */}
                 </View>
                 <View>
-                    <Title text={"MORE"}/>
+                    {/* <Title text={"MORE"}/> */}
                 </View>
             </View>
             <View style={styles.carouselContainer}>
