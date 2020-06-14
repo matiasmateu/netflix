@@ -51,7 +51,7 @@ const ScreenModal = props => {
         }, []);
     }
 
-    debugger
+      
 
     return (
         <SafeAreaView style={themeStyles.screenModal}>
