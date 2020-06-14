@@ -71,7 +71,7 @@ const ScreenHome = (props) => {
     }
 
 
-      
+    debugger
     
     return (
             <ScrollView style={themeStyles.screen}>
